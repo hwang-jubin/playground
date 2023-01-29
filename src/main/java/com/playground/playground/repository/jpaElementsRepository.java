@@ -32,7 +32,7 @@ public class jpaElementsRepository {
 
 
     public List<playground_Elements> findAll() {
-        return em.createQuery("select m from playground_Elements m", playground_Elements.class)//Member as m
+        return em.createQuery("select m from playground_Elements m where longitude is not null and latitude is not null ", playground_Elements.class)//Member as m
                 .getResultList(); //Member 객체 자체(entity)를 상대로 query 를 날림. 객체 자체를 select
     }
 
