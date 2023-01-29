@@ -7,11 +7,11 @@ import java.util.List;
 import java.util.Optional;
 
 @Transactional
-public class detailService {
+public class PlaygroundService {
 
         private final jpaElementsRepository jpaelementsrepository;
 
-        public detailService(jpaElementsRepository jpaelementsrepository) {
+        public PlaygroundService(jpaElementsRepository jpaelementsrepository) {
             this.jpaelementsrepository = jpaelementsrepository;
         }
 

@@ -6,21 +6,26 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
+import java.util.Optional;
 
 @Controller
-public class HomeController {
+public class DetailController {
+
     private final PlaygroundService playgroundService;
+
     @Autowired
-    public HomeController(PlaygroundService playgroundService) {
+    public DetailController(PlaygroundService playgroundService) {
         this.playgroundService = playgroundService;
     }
-    @GetMapping("/")
-    public String details_view(Model model) {
-        List<playground_Elements> elements = playgroundService.findMembers();
-        model.addAttribute("elements", elements);
-        return "home";
-    }
 
+    @GetMapping("/detail/{id}")
+    public String detailsView(@PathVariable Long id, Model model) {
+        Optional<playground_Elements> element = playgroundService.findOne(id);
+        model.addAttribute("element", element);
+        return "playground_Info";
+    }
 }

@@ -41,7 +41,7 @@
 <script>
 var mapContainer = document.getElementById('map'), // 지도를 표시할 div
     mapOption = {
-        center: new kakao.maps.LatLng(33.450701, 126.570667), // 지도의 중심좌표
+        center: new kakao.maps.LatLng(37.5642135, 127.0016985), // 지도의 중심좌표
         level: 3 // 지도의 확대 레벨
     };
 
@@ -68,13 +68,26 @@ for (var i = 0; i < 100; i ++) {
     var marker = new kakao.maps.Marker({
         map: map, // 마커를 표시할 지도
         position: new kakao.maps.LatLng(elements[i].latitude, elements[i].longitude), // 마커를 표시할 위치
-        title : elements[i].title, // 마커의 타이틀, 마커에 마우스를 올리면 타이틀이 표시됩니다
+        id: 11111111111111,
+        title : elements[i].id, // 마커의 타이틀, 마커에 마우스를 올리면 타이틀이 표시됩니다
         image : markerImage // 마커 이미지
     });
-}
+
+    // 마커에 클릭이벤트를 등록합니다
+    kakao.maps.event.addListener(marker, 'click', goToDetail);
+};
+
+function goToDetail(e) {
+  console.log("this: ", this);
+  location.href = "http://localhost:8080/detail/"+this.Gb;
+  console.log("this: ", this);
+};
+
 </script>
 <p>
-<a href="/details">상세 정보</a>
+<a href="/details/id">상세 정보</a>
 </p>
 </body>
 </html>
+
+

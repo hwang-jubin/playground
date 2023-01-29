@@ -4,22 +4,33 @@
 
 <div class="container">
     <div>
-        <table>
-            <thead>
-            <tr>
-                <th>#</th> <th>이름</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr th:each="element : ${elements}">
-                <td th:text="${element.id}"></td>
-                <td th:text="${element.code1}"></td>
-            </tr>
-            </tbody>
-        </table>
+        <p th:text="${element}"></p>
+<!--        <table>-->
+<!--            <thead>-->
+<!--            <tr>-->
+<!--                <th>#</th> <th>이름</th>-->
+<!--            </tr>-->
+<!--            </thead>-->
+<!--            <tbody>-->
+<!--            <tr th:each="element : ${detailelements}">-->
+<!--                <td th:text="${element.id}"></td>-->
+<!--                <td th:text="${element.code1}"></td>-->
+<!--            </tr>-->
+<!--            </tbody>-->
+<!--        </table>-->
     </div>
 
 </div> <!-- /container -->
 
 </body>
+
+<script type="text/javascript" th:inline="javascript">
+/*<![CDATA[*/
+var element = [[${element}]]
+/*]]>*/
+
+
+
+</script>
+
 </html>

@@ -1,7 +1,7 @@
 package com.playground.playground;
 
 import com.playground.playground.repository.jpaElementsRepository;
-import com.playground.playground.service.detailService;
+import com.playground.playground.service.PlaygroundService;
 import jakarta.persistence.EntityManager;
 import jakarta.transaction.Transactional;
 import org.springframework.context.annotation.Bean;
@@ -18,8 +18,8 @@ public class SpringConfig {
         this.em = em;
     }
     @Bean
-    public detailService memberService() {
-        return new detailService(jpaElementsRepository());
+    public PlaygroundService memberService() {
+        return new PlaygroundService(jpaElementsRepository());
     }
 
     @Bean
